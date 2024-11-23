@@ -15,7 +15,9 @@ OperatingMode handleHomeButtons(const ButtonState buttons, guiContext *cxt) {
   case BUTTON_NONE:
     // Do nothing
     break;
-  case BUTTON_BOTH:
+  case BUTTON_BOTH_LONG:
+    cxt->transitionMode = TransitionAnimation::Right;
+    return OperatingMode::SettingsMenu;
     break;
 
   case BUTTON_B_LONG:
@@ -42,8 +44,6 @@ OperatingMode handleHomeButtons(const ButtonState buttons, guiContext *cxt) {
     }
     break;
   case BUTTON_B_SHORT:
-    cxt->transitionMode = TransitionAnimation::Right;
-    return OperatingMode::SettingsMenu;
     break;
   default:
     break;
